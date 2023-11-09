@@ -26,6 +26,21 @@ def _connect_to_db(name: str) -> SqliteDb:
     _create_portfolio_table(db)
     return db
 
+class Portfolio_CSV:
+    def __init__(self, f: str):
+        self._df = pd.read_csv(f)
+
+    def get_df(self) -> pd.DataFrame:
+        return self._df
+    
+    def get_buys(self) -> pd.DataFrame:
+        return self._df.loc[self._df["trade_type"] == "buy"]
+
+    def get_sells(self) -> pd.DataFrame:
+        return self._df.loc[self._df["trade_type"] == "sell"]
+    
+    def get_positions(self) -> pd.DataFrame:
+        return None
 
 class Portfolio:
     def __init__(self, name: str, db_file: str = "portfolio.db"):

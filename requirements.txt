@@ -17,3 +17,4 @@ notanorm==3.9.1
 yfinance==0.2.26
 streamlit-extras==0.3.0
 yahoo-fin==0.8.9.1
+notanorm==3.9.1
